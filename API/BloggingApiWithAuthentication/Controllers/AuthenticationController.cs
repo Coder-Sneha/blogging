@@ -92,7 +92,7 @@ namespace BloggingApiWithAuthentication.Controllers
         {
             IActionResult response = Unauthorized();
             var user = await AuthenticateUser(data);
-            if (data != null)
+            if (user != null)
             {
                 var tokenString = GenerateJSONWebToken(user);
                 response = Ok(new { Token = tokenString, Message = "Success" });
